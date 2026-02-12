@@ -1,0 +1,60 @@
+name: Build and Push Hello World
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+env:
+  IMAGE_NAME: rednaw/tientje-ketama
+  REGISTRY: registry.rednaw.nl
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v6
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # 2️⃣ Log in to your private registry
+      - name: Log in to registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ vars.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      # 3️⃣ Extract short SHA for tagging
+      - name: Extract short SHA
+        id: sha
+        run: echo "short_sha=${GITHUB_SHA:0:7}" >> $GITHUB_OUTPUT
+
+      # 4️⃣ Extract image metadata
+      - name: Extract image metadata
+        id: meta
+        run: |
+          # Short ISO timestamp without timezone: YYYY-MM-DD HH:MM:SS
+          CREATED=$(git log -1 --pretty=%cI | sed -E 's/(.*)T(.*)\+.*$/\1 \2/')
+          DESCRIPTION=$(git log -1 --pretty=%s)
+          echo "description=$DESCRIPTION" >> $GITHUB_OUTPUT
+          echo "created=$CREATED" >> $GITHUB_OUTPUT
+
+      # 5️⃣ Build and push image
+      - name: Build and push image
+        run: |
+          docker buildx build \
+            --platform linux/amd64,linux/arm64 \
+            --push \
+            --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.sha.outputs.short_sha }} \
+            --label org.opencontainers.image.description="${{ steps.meta.outputs.description }}" \
+            --label org.opencontainers.image.revision="${{ github.sha }}" \
+            --label org.opencontainers.image.created="${{ steps.meta.outputs.created }}" \
+            --label org.opencontainers.image.source="https://github.com/${{ github.repository }}" \
+            .
+
+

@@ -1,0 +1,17 @@
+# SOPS VS Code extension temp files
+.decrypted~*
+
+.DS_Store
+
+# Node
+node_modules/
+build/
+.svelte-kit/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Uploads (local dev)
+uploads/

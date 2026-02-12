@@ -1,0 +1,25 @@
+{
+  "name": "SvelteKit + Prisma",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+
+  "postCreateCommand": "npm install && npx prisma generate",
+
+  "forwardPorts": [5173, 5432],
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "svelte.svelte-vscode",
+        "prisma.prisma"
+      ]
+    }
+  },
+
+  "remoteUser": "node"
+}
