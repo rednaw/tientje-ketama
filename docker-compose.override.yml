@@ -1,0 +1,6 @@
+# Optional local run: build app from repo root instead of using pre-built image.
+# Use: docker compose up (automatically picks this override when present).
+services:
+  app:
+    build: .
+    image: myapp:dev

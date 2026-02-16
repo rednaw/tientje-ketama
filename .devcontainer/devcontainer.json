@@ -1,25 +1,28 @@
 {
-  "name": "SvelteKit + Prisma",
-  "dockerComposeFile": "docker-compose.yml",
+  "name": "Tientje Ketama",
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
   "service": "app",
   "workspaceFolder": "/workspace",
-
-  "features": {
-    "ghcr.io/devcontainers/features/git:1": {}
-  },
-
-  "postCreateCommand": "npm install && npx prisma generate",
-
+  "mounts": ["source=${localEnv:HOME}/.config/sops,target=/home/node/.config/sops,type=bind"],
+  "features": {"ghcr.io/devcontainers/features/git:1": {}},
   "forwardPorts": [5173, 5432],
-
   "customizations": {
     "vscode": {
       "extensions": [
         "svelte.svelte-vscode",
-        "prisma.prisma"
-      ]
+        "prisma.prisma",
+        "signageos.signageos-vscode-sops",
+        "mikestead.dotenv"
+      ],
+      "settings": {
+        "sops.defaults.ageKeyFile": "/home/node/.config/sops/age/keys.txt",
+        "files.associations": {
+          "*.env": "dotenv",
+          ".env": "dotenv"
+        }
+      },
+      "remote.containers.autoReopen": true
     }
   },
-
   "remoteUser": "node"
 }

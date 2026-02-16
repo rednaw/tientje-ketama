@@ -1,3 +1,6 @@
+# VS Code (use devcontainer.json for shared settings)
+.vscode/
+
 # SOPS VS Code extension temp files
 .decrypted~*
 
@@ -11,7 +14,4 @@ build/
 # Env
 .env
 .env.*
-!.env.example
-
-# Uploads (local dev)
 uploads/
