@@ -39,7 +39,8 @@ export const actions = {
       redirect(303, '/');
     } catch (err) {
       console.error('Upload error:', err);
-      return fail(500, { error: 'Upload failed' });
+      const errorMessage = err instanceof Error ? err.message : 'Upload failed';
+      return fail(500, { error: errorMessage });
     }
   },
 };
