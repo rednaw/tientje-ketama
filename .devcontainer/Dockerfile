@@ -6,9 +6,12 @@ RUN curl -fsSL "https://github.com/getsops/sops/releases/download/v${SOPS_VERSIO
     && chmod +x /tmp/sops \
     && mv /tmp/sops /usr/local/bin/sops
 
+COPY .devcontainer/devcontainer-entry.sh /usr/local/bin/devcontainer-entry.sh
+RUN chmod +x /usr/local/bin/devcontainer-entry.sh
+
 USER node
 RUN curl -fsSL https://cursor.com/install | bash
 ENV PATH="${HOME}/.local/bin:${PATH}"
 
-# Keep container running and ensure node_modules is writable by node (for volume mount)
-CMD ["bash", "-c", "[ ! -d /workspace/node_modules ] && sudo mkdir -p /workspace/node_modules || true; sudo chown -R node:node /workspace/node_modules; exec sleep infinity"]
+ENTRYPOINT ["/usr/local/bin/devcontainer-entry.sh"]
+CMD ["sleep", "infinity"]

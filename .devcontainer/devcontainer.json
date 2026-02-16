@@ -3,7 +3,10 @@
   "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
   "service": "app",
   "workspaceFolder": "/workspace",
-  "mounts": ["source=${localEnv:HOME}/.config/sops,target=/home/node/.config/sops,type=bind"],
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind",
+    "source=${localEnv:HOME}/.config/sops,target=/home/node/.config/sops,type=bind,readonly"
+  ],
   "features": {"ghcr.io/devcontainers/features/git:1": {}},
   "forwardPorts": [5173, 5432],
   "customizations": {
