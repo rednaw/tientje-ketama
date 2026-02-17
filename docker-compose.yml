@@ -21,6 +21,8 @@ services:
       - "traefik.http.routers.app.entrypoints=websecure"
       - "traefik.http.routers.app.tls.certresolver=letsencrypt"
       - "traefik.http.services.app.loadbalancer.server.port=3000"
+      - "traefik.http.routers.app.middlewares=app-buffering"
+      - "traefik.http.middlewares.app-buffering.buffering.maxRequestBodyBytes=20971520" # 20MB
   db:
     image: postgres:16-alpine
     environment:
