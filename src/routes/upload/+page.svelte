@@ -3,32 +3,38 @@
 
   /** @type {import('./$types').PageData} */
   let { data } = $props();
-  let errorMessage = $state<string | null>(null);
+  let uploading = $state(false);
 
-  function handleError({ result, update }: Parameters<Parameters<typeof enhance>[0]>[0]) {
-    if (result.type === 'failure') {
-      errorMessage = result.data?.error || 'Upload failed';
-    } else if (result.type === 'error') {
-      errorMessage = 'An unexpected error occurred';
-    }
-    return async () => {
-      await update();
+  function handleSubmit() {
+    uploading = true;
+    return async ({ update }: { update: () => Promise<void> }) => {
+      try {
+        await update();
+      } finally {
+        uploading = false;
+      }
     };
   }
 </script>
 
 <h1>Upload recording</h1>
 
-<form method="POST" enctype="multipart/form-data" use:enhance={handleError}>
+<form method="POST" enctype="multipart/form-data" use:enhance={handleSubmit}>
   <div>
     <label for="file">Audio file</label>
-    <input type="file" name="file" id="file" accept="audio/*" required />
+    <input type="file" name="file" id="file" accept="audio/*" required disabled={uploading} />
   </div>
-  <button type="submit">Upload</button>
+  <button type="submit" disabled={uploading}>
+    {uploading ? 'Uploading...' : 'Upload'}
+  </button>
 </form>
 
-{#if errorMessage || data?.error}
-  <p class="error">{errorMessage || data?.error}</p>
+{#if uploading}
+  <p>Uploading file, please wait...</p>
+{/if}
+
+{#if data?.error}
+  <p class="error">{data.error}</p>
 {/if}
 
 <style>
