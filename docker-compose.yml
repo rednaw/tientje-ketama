@@ -7,6 +7,7 @@ services:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/tientjeketama
       UPLOADS_DIR: /app/uploads
       PORT: "3000"
+      BODY_SIZE_LIMIT: "20M"
     volumes:
       - ./uploads:/app/uploads
     depends_on:

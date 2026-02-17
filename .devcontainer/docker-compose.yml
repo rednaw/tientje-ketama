@@ -12,6 +12,7 @@ services:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/tientjeketama
       UPLOADS_DIR: /workspace/uploads
       PORT: "5173"
+      BODY_SIZE_LIMIT: "20M"
     ports:
       - "5173:5173"
 

@@ -3,7 +3,7 @@ import { prisma } from '$lib/server/prisma';
 import { writeRecording } from '$lib/server/storage';
 import { randomUUID } from 'crypto';
 
-const MAX_SIZE = 500 * 1024 * 1024; // 500MB
+const MAX_SIZE = 20 * 1024 * 1024; // 20MB
 
 export function load() {
   return {};
@@ -19,7 +19,7 @@ export const actions = {
     }
 
     if (file.size > MAX_SIZE) {
-      return fail(400, { error: 'File too large (max 500MB)' });
+      return fail(400, { error: 'File too large (max 20MB)' });
     }
 
     const ext = file.name.split('.').pop()?.toLowerCase() || 'bin';
