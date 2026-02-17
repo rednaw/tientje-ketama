@@ -22,8 +22,14 @@ services:
       - "traefik.http.routers.app.entrypoints=websecure"
       - "traefik.http.routers.app.tls.certresolver=letsencrypt"
       - "traefik.http.services.app.loadbalancer.server.port=3000"
-      - "traefik.http.routers.app.middlewares=app-buffering"
+      - "traefik.http.routers.app.middlewares=app-buffering,app-headers"
       - "traefik.http.middlewares.app-buffering.buffering.maxRequestBodyBytes=20971520" # 20MB
+      - "traefik.http.middlewares.app-headers.headers.stsSeconds=31536000"
+      - "traefik.http.middlewares.app-headers.headers.stsIncludeSubdomains=true"
+      - "traefik.http.middlewares.app-headers.headers.stsPreload=true"
+      - "traefik.http.middlewares.app-headers.headers.customFrameOptionsValue=SAMEORIGIN"
+      - "traefik.http.middlewares.app-headers.headers.contentTypeNosniff=true"
+      - "traefik.http.middlewares.app-headers.headers.referrerPolicy=same-origin"
   db:
     image: postgres:16-alpine
     environment:
