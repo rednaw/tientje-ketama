@@ -12,7 +12,15 @@ services:
     depends_on:
       db:
         condition: service_healthy
-
+    networks:
+      - default
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.app.rule=Host(`dev.rednaw.nl`) || Host(`prod.rednaw.nl`)"
+      - "traefik.http.routers.app.entrypoints=websecure"
+      - "traefik.http.routers.app.tls.certresolver=letsencrypt"
+      - "traefik.http.services.app.loadbalancer.server.port=3000"
   db:
     image: postgres:16-alpine
     environment:
@@ -30,6 +38,8 @@ services:
 networks:
   default:
     name: tientje-ketama-network
+  traefik:
+    external: true
 
 volumes:
   postgres_data:
