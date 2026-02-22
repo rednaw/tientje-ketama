@@ -1,4 +1,4 @@
-# Devcontainer overrides: mount workspace and node_modules volume (startup CMD in Dockerfile)
+# Devcontainer overrides: mount workspace, no traefik, default command (see Dockerfile)
 services:
   app:
     build:
@@ -14,7 +14,16 @@ services:
       PORT: "5173"
       BODY_SIZE_LIMIT: "20M"
     ports:
-      - "5173:5173"
+      - "127.0.0.1:5173:5173"
+    networks:
+      - default
+    labels: []
+
+networks:
+  traefik:
+    name: tientje-ketama-traefik
+    driver: bridge
+    external: false
 
 volumes:
   node-modules:

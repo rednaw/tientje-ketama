@@ -2,7 +2,7 @@ services:
   app:
     image: ${IMAGE}
     ports:
-      - "127.0.0.1:5000:3000"
+      - "127.0.0.1:3000:3000"
     environment:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/tientjeketama
       UPLOADS_DIR: /app/uploads
@@ -16,6 +16,7 @@ services:
     networks:
       - default
       - traefik
+    restart: unless-stopped
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.app.rule=Host(`dev.rednaw.nl`) || Host(`prod.rednaw.nl`)"
@@ -38,6 +39,7 @@ services:
       POSTGRES_DB: tientjeketama
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 2s
