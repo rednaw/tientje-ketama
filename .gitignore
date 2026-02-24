@@ -11,7 +11,5 @@ node_modules/
 build/
 .svelte-kit/
 
-# Env
-.env
-.env.*
 uploads/
+*.mp3
