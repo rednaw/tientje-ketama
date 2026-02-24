@@ -1,21 +1,8 @@
 <script lang="ts">
   import '../app.css';
   import { page } from '$app/state';
-  import { browser } from '$app/environment';
-  import { env } from '$env/dynamic/public';
 
   let { children } = $props();
-
-  if (browser && env.PUBLIC_SIMPLE_ANALYTICS_DOMAIN) {
-    const domain = env.PUBLIC_SIMPLE_ANALYTICS_DOMAIN;
-    if (!document.querySelector(`script[src*="simpleanalytics.com/${domain}"]`)) {
-      const script = document.createElement('script');
-      script.defer = true;
-      script.src = `https://scripts.simpleanalytics.com/${encodeURIComponent(domain)}.js`;
-      script.async = true;
-      document.head.appendChild(script);
-    }
-  }
 </script>
 
 <div class="shell">
