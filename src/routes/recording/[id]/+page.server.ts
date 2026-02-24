@@ -14,7 +14,7 @@ export async function load({ params }) {
       originalFilename: recording.originalFilename,
       format: recording.format,
       fileSizeBytes: Number(recording.fileSizeBytes),
-      uploadedAt: recording.uploadedAt,
+      recordedAt: recording.recordedAt,
     },
   };
 }

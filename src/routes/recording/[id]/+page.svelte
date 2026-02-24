@@ -28,6 +28,8 @@
   <dd>{data.recording.format.toUpperCase()}</dd>
   <dt>Size</dt>
   <dd>{formatSize(data.recording.fileSizeBytes)}</dd>
+  <dt>Recorded</dt>
+  <dd>{new Date(data.recording.recordedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</dd>
 </dl>
 
 <style>

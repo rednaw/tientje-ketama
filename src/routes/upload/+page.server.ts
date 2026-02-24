@@ -1,6 +1,7 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { prisma } from '$lib/server/prisma';
-import { writeRecording } from '$lib/server/storage';
+import { writeRecording, getRecordingPath } from '$lib/server/storage';
+import { extractRecordedDate } from '$lib/server/metadata';
 import { randomUUID } from 'crypto';
 
 const MAX_SIZE = 20 * 1024 * 1024; // 20MB
@@ -28,12 +29,16 @@ export const actions = {
 
     try {
       await writeRecording(id, ext, file.stream());
+      const filePath = getRecordingPath(id, ext);
+      const recordedAt = await extractRecordedDate(filePath);
+
       await prisma.recording.create({
         data: {
           id,
           originalFilename: file.name,
           format,
           fileSizeBytes: BigInt(file.size),
+          recordedAt,
         },
       });
     } catch (err) {

@@ -25,7 +25,8 @@
     "vite": "^6.0.0"
   },
   "dependencies": {
-    "@prisma/client": "^6.9.0"
+    "@prisma/client": "^6.9.0",
+    "music-metadata": "^11.12.1"
   },
   "type": "module"
 }

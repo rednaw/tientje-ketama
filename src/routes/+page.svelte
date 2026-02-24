@@ -35,7 +35,7 @@
         <a href="/recording/{r.id}" class="card">
           <span class="filename">{r.originalFilename}</span>
           <span class="meta">
-            {r.format.toUpperCase()} · {formatSize(r.fileSizeBytes)} · {formatDate(r.uploadedAt)}
+            {r.format.toUpperCase()} · {formatSize(r.fileSizeBytes)} · {formatDate(r.recordedAt)}
           </span>
         </a>
       </li>

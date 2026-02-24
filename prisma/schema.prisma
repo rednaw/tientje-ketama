@@ -12,7 +12,8 @@ model Recording {
   originalFilename String
   format           String
   fileSizeBytes    BigInt
-  uploadedAt      DateTime @default(now())
+  recordedAt       DateTime
+  uploadedAt       DateTime @default(now())
 
   @@index([uploadedAt])
 }

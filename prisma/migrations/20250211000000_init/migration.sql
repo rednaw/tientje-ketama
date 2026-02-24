@@ -4,6 +4,7 @@ CREATE TABLE "Recording" (
     "originalFilename" TEXT NOT NULL,
     "format" TEXT NOT NULL,
     "fileSizeBytes" BIGINT NOT NULL,
+    "recordedAt" TIMESTAMP(3) NOT NULL,
     "uploadedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Recording_pkey" PRIMARY KEY ("id")
