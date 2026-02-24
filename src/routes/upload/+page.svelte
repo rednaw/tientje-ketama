@@ -36,7 +36,7 @@
     <input
       type="file"
       name="file"
-      accept="audio/*"
+      accept="audio/*,.m4a,.mp3,.wav,.flac,.ogg,.aac,.caf"
       required
       disabled={uploading}
       onchange={handleFileChange}
