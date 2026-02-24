@@ -36,11 +36,12 @@ export const actions = {
           fileSizeBytes: BigInt(file.size),
         },
       });
-      redirect(303, '/');
     } catch (err) {
       console.error('Upload error:', err);
       const errorMessage = err instanceof Error ? err.message : 'Upload failed';
       return fail(500, { error: errorMessage });
     }
+
+    redirect(303, '/');
   },
 };
