@@ -1,4 +1,5 @@
-# Devcontainer overrides: mount workspace, no traefik, default command (see Dockerfile)
+# Devcontainer overlay: build from source, workspace mount, dev server port.
+# Loaded by devcontainer.json alongside ../docker-compose.yml.
 services:
   app:
     build:
@@ -9,16 +10,13 @@ services:
       - .:/workspace:cached
       - node-modules:/workspace/node_modules
     environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
       UPLOADS_DIR: /workspace/uploads
       PORT: "5173"
-      BODY_SIZE_LIMIT: "20M"
     ports:
       - "127.0.0.1:5173:5173"
-    networks:
-      - default
     labels: []
 
+# Local traefik network (non-external) prevents the real Traefik from picking up dev containers.
 networks:
   traefik:
     name: tientje-ketama-traefik
