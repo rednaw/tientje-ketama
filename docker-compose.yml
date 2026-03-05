@@ -4,8 +4,9 @@ services:
     ports:
       - "127.0.0.1:3000:3000"
     environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@db:5432/tientje_ketama
       UPLOADS_DIR: /app/uploads
+      PUBLIC_SIMPLE_ANALYTICS_DOMAIN: ""
       PORT: "3000"
       BODY_SIZE_LIMIT: "20M"
     volumes:
@@ -17,13 +18,13 @@ services:
   db:
     image: postgres:16-alpine
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_DB: tientje_ketama
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 2s
       timeout: 5s
       retries: 5

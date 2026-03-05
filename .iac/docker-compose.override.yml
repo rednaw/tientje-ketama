@@ -1,5 +1,7 @@
 services:
   app:
+    environment:
+      PUBLIC_SIMPLE_ANALYTICS_DOMAIN: tientjeketama.nl
     networks:
       - default
       - traefik

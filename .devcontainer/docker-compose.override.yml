@@ -1,5 +1,6 @@
 # Devcontainer overlay: build from source, workspace mount, dev server port.
 # Loaded by devcontainer.json alongside ../docker-compose.yml.
+# Only POSTGRES_PASSWORD comes from ../.env; IMAGE is overridden below.
 services:
   app:
     build:
