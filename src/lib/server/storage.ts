@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'fs/promises';
+import { mkdir, rm, writeFile } from 'fs/promises';
 import path from 'path';
 
 const UPLOADS_DIR = process.env.UPLOADS_DIR || 'uploads';
@@ -39,4 +39,9 @@ export async function writeRecording(
 
 export function getRecordingPath(id: string, ext: string): string {
   return path.join(UPLOADS_DIR, id, `original.${ext}`);
+}
+
+export async function deleteRecording(id: string): Promise<void> {
+  const dir = path.join(UPLOADS_DIR, id);
+  await rm(dir, { recursive: true, force: true });
 }
