@@ -5,6 +5,9 @@ on:
 jobs:
   build-and-push:
     uses: rednaw/iac/.github/workflows/_build-and-push.yml@main
+    permissions:
+      contents: read
+      packages: write
     secrets:
       REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
       REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
