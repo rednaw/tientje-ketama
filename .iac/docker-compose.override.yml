@@ -14,16 +14,7 @@ services:
       traefik.http.routers.app.tls.certresolver: "letsencrypt"
       traefik.http.routers.app.middlewares: "app-headers@file,app-buffering@file,app-permissions@docker"
       traefik.http.services.app.loadbalancer.server.port: "3000"
-      traefik.http.middlewares.app-permissions.headers.customResponseHeaders.Permissions-Policy: >
-        accelerometer=(),
-        autoplay=(self),
-        camera=(),
-        geolocation=(),
-        gyroscope=(),
-        magnetometer=(),
-        microphone=(),
-        payment=(),
-        usb=()
+      traefik.http.middlewares.app-permissions.headers.customResponseHeaders.Permissions-Policy: "accelerometer=(), autoplay=(self), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
   db:
     restart: unless-stopped
 
