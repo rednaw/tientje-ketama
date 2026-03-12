@@ -33,7 +33,7 @@
     {#each data.recordings as r}
       <li>
         <a href="/recording/{r.id}" class="card">
-          <span class="filename">{r.originalFilename}</span>
+          <span class="filename">{r.originalFilename.replace(/\.[^.]+$/, '')}</span>
           <span class="meta">
             {r.format.toUpperCase()} · {formatSize(r.fileSizeBytes)} · {formatDate(r.recordedAt)}
           </span>
