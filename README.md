@@ -24,4 +24,3 @@ App runs at http://localhost:5173
 | `/` | List recordings |
 | `/upload` | Upload form |
 | `/recording/[id]` | Play recording |
-
