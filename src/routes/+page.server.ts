@@ -5,7 +5,7 @@ import { deleteRecording } from '$lib/server/storage';
 
 export async function load() {
   const rows = await prisma.recording.findMany({
-    orderBy: { recordedAt: 'desc' },
+    orderBy: { originalFilename: 'asc' },
   });
   const recordings = rows.map((r) => ({
     id: r.id,
