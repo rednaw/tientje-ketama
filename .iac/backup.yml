@@ -1,0 +1,16 @@
+# Service-aware backup config. Deployed to server; backup flow reads it.
+# See docs/backup-storage-box.md
+
+retention:
+  keep_daily: 7
+  keep_weekly: 4
+  keep_monthly: 12
+
+postgres:
+  - service: db
+    user_env: POSTGRES_USER
+    db_env: POSTGRES_DB
+
+volumes:
+  - service: app
+    path: /app/uploads
