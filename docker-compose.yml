@@ -10,7 +10,7 @@ services:
       PORT: "3000"
       BODY_SIZE_LIMIT: "20M"
     volumes:
-      - ./uploads:/app/uploads
+      - uploads:/app/uploads
     depends_on:
       db:
         condition: service_healthy
@@ -34,4 +34,5 @@ networks:
     name: tientje-ketama-network
 
 volumes:
+  uploads:
   postgres_data:

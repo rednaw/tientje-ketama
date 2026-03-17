@@ -10,6 +10,7 @@ services:
     volumes:
       - .:/workspace:cached
       - node-modules:/workspace/node_modules
+      - uploads:/workspace/uploads
     environment:
       UPLOADS_DIR: /workspace/uploads
       PORT: "5173"
@@ -26,3 +27,4 @@ networks:
 
 volumes:
   node-modules:
+  uploads:
