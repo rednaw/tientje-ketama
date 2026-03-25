@@ -4,7 +4,7 @@ services:
     ports:
       - "127.0.0.1:3000:3000"
     environment:
-      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@db:5432/tientje_ketama
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
       UPLOADS_DIR: /app/uploads
       PUBLIC_SIMPLE_ANALYTICS_DOMAIN: ""
       PORT: "3000"
