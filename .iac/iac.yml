@@ -33,31 +33,35 @@ app_domains:
     - dev.tientjeketama.nl
     - prod.tientjeketama.nl
 sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
     age:
         - recipient: age16hthywte685jmwww0y694f7cy9pzded7aagly7f287s9444zhsms6tpq9x
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA2SlJNNG41S0dDQkl5NzZu
-            RWZPTXVuWGtzeGdTeGdHZTJQUFR5RFViS1ZFClltemZ6NnFaTjVwRTJRalFPM1du
-            MWlJN0kybnlicVNCcE51YzVxanNLcUUKLS0tIEs2ekFkWlNSeld6aVJLdWhkRVBx
-            UXdOTmhhUjJNQXNMdFM0bDhKRUxDNU0KLhnDURbs7aM8cx8ttXaduW3pT3l4uZW7
-            W2nYPNruE8vaRSKAIDRHCtuTBeRLXXuVVZDRD3FKqulckpIGZ7eFQw==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBPbnZpQUNVUVpWN1lqazJJ
+            SmZ6RExmY1pyeHZhK0QwV3ZvTldPclZPT2dVClNZTG5iRldrdTgrQTZBdHhwN29n
+            ZWJ0VVQ3VFB0L2hKU2VWZDNLQTk0TGMKLS0tIFVyK1luQVAvdVM3Vy9Ua1hlRlNC
+            TEVWaC95dTQxbkVPeEJhSnJ3aTN5aVUKToFpzOG3EVREJb684YDG0BAAme+31XL5
+            j/7S0Tnw7sraLIG8Wxpt06UocwsNsgueED+n4jd/Ih+GUofJqpHghw==
             -----END AGE ENCRYPTED FILE-----
-        - recipient: age15x5qlkc4ucef4rga7u2s2du4pxrnn4q6pcmpdf4ahupxjc85x3tqhxl2up
+        - recipient: age1xrpyhjedhc262qz6dgtek36fu2gd0tdgrsv8xvvf4xu9mrj4cghs4ujedq
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB3dUtWSyttc3Y5NG5oNkVa
-            TjRUOTNSSU5ZR1h5ZDVWTFVPY3J5bTZhUXkwCjFiTFExaDhNaDFhTDV5eFdOTkU0
-            MklCb3llSFJ1S3BDdWhoK05oYnV3dWMKLS0tIGQxTWlvdE1hZFdPZ3lOTVpZTzNt
-            cThUTDZvVUFOcVhyaHdQeUMwS1ZhbVUKnKbfdPGCcqJ68TtfOqo4h4TrWaUMGCqW
-            ngSI3o8CW2afTZ4ZzLcsGpP4cEIunlVdfbqc4xPR/DS2KiDVz0xvUA==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBhUzFGU3VPazlFTVVrZFIy
+            dHhtMDNtaXNxbW5FL3VPWC9pemtENnBhcUZVCjk3MjkwWi9DMDRXYmhlT0ZVYnM2
+            UnBOUTMwSi9DRHBsNnR1WHIrYlQxS00KLS0tIFdxWkdveDdxTnlqNUlMQ1FGbVZu
+            V2d5Smx6ZlJ4Z0FyaWZpUE5JMG9EeUkKzRF1yt/MaFojSAUkCW2V4cbVYsE0YenD
+            j/Hx+/HDKGnBOLGmhGUa3dVqchGKU9c0e1+fHvmOu0nZVLr1zQ2HfA==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age1lk9l3hucfatw8muugllx82h0pvjlrapa0yyes353gqp390xs4prqzlnqjk
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA3YVpGMndnVEpuQTY4cDJx
+            emQ4KzhOOVZrY1QwcVBZVWJ4Mm1XU29Bb0FzCmhmdjFCQzFpZERNSFdjZ0JOUHVH
+            L0pEbTJEYXlSY2F0NVFVUXhmY01VWDQKLS0tIDBVQlhiQUc2OW41WW1hV0tFVmtY
+            OFd2b2FzZWlMcW93VkZnRWRDTSt5d2sKvAzjGa8orHfdwDB7LgrZOc2V7WGIc7IO
+            ksLSyKzr9J4FG4qUE5kVw523b+7/OFSNGfXwJtGo8qaHQOFjMwX6GA==
             -----END AGE ENCRYPTED FILE-----
     lastmodified: "2026-03-25T12:53:17Z"
     mac: ENC[AES256_GCM,data:pqICeDhQuYtJ0YMqVytPvQRJb2zb2e9ziGNp1zcDVaDUvyy2nwKp0Ij+FD0eER9JWQUohOJziNWL2EYk9UGEuZzQHLcbrMjXuID5T+sjBFpJYX3pFh4LcxzabEfNPEmIQC7bbTb5MRMGvyOYYNCVfhGf+oV2EC9LbGMr6og3IkA=,iv:wRDHtwPt+JLkOLGEwO/UzUu92OS2bu6LGz2qanDXhLk=,tag:bA6aDFrTT6JRg3HJTFp1mQ==,type:str]
-    pgp: []
     unencrypted_regex: ^(image_name|app_domains)$
     version: 3.12.1
