@@ -8,7 +8,10 @@
 <div class="shell">
   <header>
     <nav>
-      <a href="/" class="brand">Tientje Ketama</a>
+      <a href="/" class="brand">
+        Tientje Ketama
+        <span class="tagline">bandarchief</span>
+      </a>
       <div class="nav-links">
         <a href="/" class:active={page.url.pathname === '/'}>Recordings</a>
         <a href="/upload" class:active={page.url.pathname === '/upload'}>Upload</a>
@@ -48,6 +51,17 @@
     font-size: 1.1rem;
     color: var(--color-text);
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .tagline {
+    font-weight: 400;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
   }
 
   .nav-links {
