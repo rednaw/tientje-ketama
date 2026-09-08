@@ -1,0 +1,14 @@
+---
+description: iac deploy contract, Docker, adapter-node
+globs: .iac/**,Dockerfile,docker-compose.yml,.devcontainer/**,deploycontainer-entrypoint.sh,svelte.config.js
+alwaysApply: false
+---
+
+# Deploy / runtime
+
+- **Adapter:** `@sveltejs/adapter-node` (`out: 'build'`). Do not switch to `adapter-static`.
+- **Listen:** `PORT` 3000. Compose binds `127.0.0.1:3000:3000`; Traefik in `.iac/docker-compose.yml`.
+- **Image:** `rednaw/tientje-ketama`. Contract in `.iac/`: `iac.yml` (plain `image_name`, `app_domains`), `docker-compose.yml`, SOPS `.env`. No infra keys in `iac.yml`.
+- **Container:** `npx prisma generate` at build; entrypoint `prisma migrate deploy` then `node build`.
+- **Uploads:** disk volume `UPLOADS_DIR` (`/app/uploads` in prod). Not Git LFS, not object storage.
+- Deploy from iac: `task app:deploy -- <env> tientje-ketama <7-char-sha>`.

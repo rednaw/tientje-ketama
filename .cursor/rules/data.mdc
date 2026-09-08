@@ -1,0 +1,12 @@
+---
+description: Prisma schema, Postgres, recording files on disk
+globs: prisma/**,src/lib/server/**,src/routes/upload/**,src/routes/recording/**,src/routes/api/**,src/routes/+page.server.ts
+alwaysApply: false
+---
+
+# Data
+
+- Postgres via `DATABASE_URL`. Prisma client only on the server (`src/lib/server/prisma.ts`).
+- Schema changes: `prisma migrate` (`db:migrate` / `db:migrate:deploy`). Do not use `db:push` as the production path.
+- `Recording` is the domain model (uuid id, original filename, format, size, recordedAt). Files live at `{UPLOADS_DIR}/{id}/original.{ext}`.
+- Upload cap 20MB (`BODY_SIZE_LIMIT` / form action). Metadata from the file (`music-metadata`); do not invent a second store.
