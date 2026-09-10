@@ -3,6 +3,11 @@
   "dockerComposeFile": ["../docker-compose.yml", "docker-compose.override.yml"],
   "service": "app",
   "workspaceFolder": "/workspace",
+  "containerEnv": {
+    "GIT_CONFIG_COUNT": "1",
+    "GIT_CONFIG_KEY_0": "safe.directory",
+    "GIT_CONFIG_VALUE_0": "*"
+  },
   "mounts": [
     "source=cursor-state,target=/home/node/.cursor,type=volume",
     "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind",
