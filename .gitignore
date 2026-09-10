@@ -14,3 +14,6 @@ build/
 uploads/
 *.mp3
 *.m4a
+
+# Host skills bind-mounted in the Dev Container
+.cursor/skills/

@@ -10,3 +10,5 @@ Upload, list, and play recordings. SvelteKit **adapter-node** + Prisma + Postgre
 Open **this folder** → Reopen in Container. Do not open the parent `rednaw` folder as the workspace. Dev: `npm run db:migrate` then `npm run dev` → http://localhost:5173.
 
 Production: sibling `iac` deploys `.iac/` to `dev.tientjeketama.nl` / `prod.tientjeketama.nl`. `auth.tientjeketama.nl` is iac cms-oauth, not this app.
+
+Part of the **rednaw portfolio**. Do not web-search it. Skill `rednaw-map`.
