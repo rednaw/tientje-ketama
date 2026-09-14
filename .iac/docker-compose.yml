@@ -21,7 +21,7 @@ services:
     labels:
       traefik.enable: "true"
       traefik.http.routers.app.priority: "1"
-      traefik.http.routers.app.rule: "Host(`dev.tientjeketama.nl`) || Host(`prod.tientjeketama.nl`)"
+      traefik.http.routers.app.rule: "Host(`${APP_HOST}`)"
       traefik.http.routers.app.entrypoints: "websecure"
       traefik.http.routers.app.tls.certresolver: "letsencrypt"
       traefik.http.routers.app.middlewares: "app-headers@file,app-buffering@file,app-permissions@docker"
