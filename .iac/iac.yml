@@ -1,4 +1,3 @@
 image_name: rednaw/tientje-ketama
 app_domains:
-  - dev.tientjeketama.nl
-  - prod.tientjeketama.nl
+  - tientjeketama.nl

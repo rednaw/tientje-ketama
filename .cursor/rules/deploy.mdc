@@ -11,4 +11,4 @@ alwaysApply: false
 - **Image:** `rednaw/tientje-ketama`. Contract in `.iac/`: `iac.yml` (plain `image_name`, `app_domains`), `docker-compose.yml`, SOPS `.env`. No infra keys in `iac.yml`.
 - **Container:** `npx prisma generate` at build; entrypoint `prisma migrate deploy` then `node build`.
 - **Uploads:** disk volume `UPLOADS_DIR` (`/app/uploads` in prod). Not Git LFS, not object storage.
-- Deploy from iac: `task app:deploy -- <env> tientje-ketama <7-char-sha>`.
+- Deploy from iac: `task app:deploy -- tientje-ketama <7-char-sha>`.
