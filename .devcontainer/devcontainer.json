@@ -2,7 +2,7 @@
   "name": "Tientje Ketama",
   "dockerComposeFile": ["../docker-compose.yml", "docker-compose.override.yml"],
   "service": "app",
-  "workspaceFolder": "/workspace",
+  "workspaceFolder": "/workspaces/tientje-ketama",
   "containerEnv": {
     "GIT_CONFIG_COUNT": "1",
     "GIT_CONFIG_KEY_0": "safe.directory",
@@ -11,7 +11,7 @@
   "mounts": [
     "source=cursor-state,target=/home/node/.cursor,type=volume",
     "source=${localEnv:HOME}/.cursor/skills,target=/home/node/.cursor/skills,type=bind",
-    "source=${localEnv:HOME}/.cursor/skills,target=/workspace/.cursor/skills,type=bind",
+    "source=${localEnv:HOME}/.cursor/skills,target=/workspaces/tientje-ketama/.cursor/skills,type=bind",
     "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind",
     "source=${localEnv:HOME}/.config/sops,target=/home/node/.config/sops,type=bind,readonly"
   ],

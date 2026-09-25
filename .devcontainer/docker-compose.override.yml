@@ -8,11 +8,11 @@ services:
       dockerfile: .devcontainer/Dockerfile
     image: tientje-ketama:dev
     volumes:
-      - .:/workspace:cached
-      - node-modules:/workspace/node_modules
-      - uploads:/workspace/uploads
+      - .:/workspaces/tientje-ketama:cached
+      - node-modules:/workspaces/tientje-ketama/node_modules
+      - uploads:/workspaces/tientje-ketama/uploads
     environment:
-      UPLOADS_DIR: /workspace/uploads
+      UPLOADS_DIR: /workspaces/tientje-ketama/uploads
       PORT: "5173"
     ports:
       - "127.0.0.1:5173:5173"
