@@ -6,7 +6,6 @@ services:
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-tientje_ketama}
       UPLOADS_DIR: /app/uploads
-      PUBLIC_SIMPLE_ANALYTICS_DOMAIN: tientjeketama.nl
       PORT: "3000"
       BODY_SIZE_LIMIT: "20M"
     volumes:

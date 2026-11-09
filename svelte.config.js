@@ -10,18 +10,10 @@ const config = {
       mode: 'nonce',
       directives: {
         'default-src': ['self'],
-        'script-src': [
-          'self',
-          'https://scripts.simpleanalyticscdn.com',
-          'https://analytics.rednaw.nl',
-        ],
+        'script-src': ['self', 'https://analytics.rednaw.nl'],
         'style-src': ['self', 'unsafe-inline'], // Svelte transitions use inline styles
         'img-src': ['self', 'data:'],
-        'connect-src': [
-          'self',
-          'https://api.simpleanalytics.com',
-          'https://analytics.rednaw.nl',
-        ],
+        'connect-src': ['self', 'https://analytics.rednaw.nl'],
         'media-src': ['self'],
       },
     },
